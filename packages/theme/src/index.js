@@ -223,8 +223,8 @@ const theme = {
     ],
     // small: { fontSize: fontSize[0] },
   },
-  colors: colors,
-  space: space,
+  colors: { colors },
+  space: { space },
   buttons: {
     primary: {
       color: colors.neutral[0],
@@ -525,10 +525,10 @@ const theme = {
       color: colors.error,
     },
   },
-  borders: borders,
-  forms: forms,
-  radii: radius,
-  shadows: shadows,
+  borders: { borders },
+  forms: { forms },
+  radii: { radius },
+  shadows: { shadows },
   loader: {
     primary: {
       backgroundColor: colors.primary,
@@ -537,7 +537,7 @@ const theme = {
       backgroundColor: colors.secondary,
     },
   },
-  switches: switches,
+  switches: { switches },
   variants: {
     avatar: {
       width: '30px',
