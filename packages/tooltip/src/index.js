@@ -5,7 +5,7 @@ import { isMouseOutJoin } from '@oneloop/hooks'
 
 export const ParentTooltip = ({ children, setHover, hover, placement = 'right', offset = 8, ...props }) => {
   let styles = { position: 'absolute', width: offset + 'px' }
-  if (document.getElementById(props.id) !== null) {
+  if (document != undefined && document.getElementById(props.id) !== null) {
     const values = document.getElementById(props.id).getBoundingClientRect()
     if (placement === 'right') {
       styles = { position: 'absolute', width: offset + 'px', height: values.height, marginLeft: values.width }
@@ -39,8 +39,10 @@ export const ParentTooltip = ({ children, setHover, hover, placement = 'right', 
 }
 
 export const Tooltip = ({ parentId, childrenId, variant = 'tooltip', placement = 'right', offset = 8, ...props }) => {
-  const popcorn = document.querySelector('#' + parentId)
-  const tooltip = document.querySelector('#' + childrenId)
+  if (document != undefined) {
+    const popcorn = document.querySelector('#' + parentId)
+    const tooltip = document.querySelector('#' + childrenId)
+  }
   if (popcorn != null && tooltip != null) {
     createPopper(popcorn, tooltip, {
       placement: placement,
