@@ -27,7 +27,7 @@ export const ParentTooltip = ({ children, setHover, hover, placement = 'right', 
         }}
       >
         {children}
-        { hover &&
+        { hover && document !== undefined &&
           <div id={ 'join' + props.id } role={ 'join' + props.id }
             onMouseOut={(e) => setHover(isMouseOutJoin(e, 'join' + props.id, placement))}
             style={styles}

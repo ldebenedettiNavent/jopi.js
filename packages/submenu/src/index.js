@@ -27,7 +27,7 @@ export const Parent = ({ children, setHover, hover, placement = 'right', offset 
         }}
       >
         {children}
-        { hover &&
+        { hover && document !== undefined &&
           <div id={ 'join' + props.id } role={ 'join' + props.id }
             onMouseOut={(e) => setHover(isMouseOutJoin(e, 'join' + props.id, placement))}
             style={styles}
