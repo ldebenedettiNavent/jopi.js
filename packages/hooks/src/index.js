@@ -43,6 +43,9 @@ export const useFilterData = (data, key) => {
 export const isMouseOutTooltip = (e, tooltipId, parentId, placement) => {
   const x = e.clientX
   const y = e.clientY
+  if (document === undefined) {
+    return true
+  }
   const positionParent = document.getElementById(parentId).getBoundingClientRect()
   const positionTooltip = document.getElementById(tooltipId).getBoundingClientRect()
   return !((placement === 'right' && ((x > positionTooltip.right || y < positionTooltip.top || y > positionTooltip.bottom) ||
@@ -58,6 +61,9 @@ export const isMouseOutTooltip = (e, tooltipId, parentId, placement) => {
 export const isMouseOutJoin = (e, joinId, placement) => {
   const x = e.clientX
   const y = e.clientY
+  if (document === undefined) {
+    return true
+  }
   const positionJoin = document.getElementById(joinId).getBoundingClientRect()
   return !(((placement === 'right' || placement === 'left') && (y < positionJoin.top || y > (positionJoin.bottom - 1))) ||
     ((placement === 'bottom' || placement === 'top') && (x < positionJoin.left || x > positionJoin.right)))
@@ -66,6 +72,9 @@ export const isMouseOutJoin = (e, joinId, placement) => {
 export const isMouseOutParent = (e, parentId, placement) => {
   const x = e.clientX
   const y = e.clientY
+  if (document === undefined) {
+    return true
+  }
   const positionParent = document.getElementById(parentId).getBoundingClientRect()
   return !((placement === 'right' && (x < positionParent.left || y < positionParent.top || y > positionParent.bottom)) ||
     (placement === 'bottom' && (y < positionParent.top || x < positionParent.left || x > positionParent.right)) ||
